@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TOKYO - A City of Contrasts</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-weight: normal;
+        }
+
+        .tag {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: bold;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://content.r9cdn.net/rimg/dimg/ca/7e/9ae1c4b2-city-21033-16c1b1c620d.jpg?crop=true&width=1020&height=498");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 350px;
+        }
+
+        .hero .tag {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            color: #ccc;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 15px 0;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            max-width: 450px;
+            line-height: 1.6;
+            opacity: 0.9;
+            font-size: 14px;
+            margin: 0 auto;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .section-container h2 {
+            font-size: 36px;
+            margin: 10px 0 10px 0;
+        }
+
+        .sub-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .img-right {
+            float: right;
+            width: 400px;
+            margin-left: 35px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .img-left {
+            float: left;
+            width: 400px;
+            margin-right: 35px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .sub-heading {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .journal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .hint-text {
+            font-size: 12px;
+            color: #777;
+            max-width: 220px;
+            text-align: right;
+        }
+
+        .photo-grid {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .photo-card {
+            position: relative;
+            flex: 1;
+            height: 260px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .photo-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .footer-note {
+            font-size: 11px;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .planner-table, .budget-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 2px;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            font-size: 13px;
+        }
+
+        .planner-table th, .budget-table th {
+            background-color: #6d7b78;
+            color: #fff;
+            font-weight: normal;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .planner-table td, .budget-table td {
+            padding: 12px 15px;
+            background-color: #e5e7e6;
+            color: #333;
+        }
+
+        .planner-table td.disney-span {
+            background-color: #eedada;
+            text-align: center;
+            color: #a84242;
+            font-weight: bold;
+        }
+
+        .budget-table td.price-col {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">TOKYO</div>
+        <nav>
+            <a href="#hero">Overview</a>
+            <a href="#neighborhoods">Neighborhoods</a>
+            <a href="#photo-journal">Explore</a>
+            <a href="#travel-planner">Planner</a>
+        </nav>
+    </header>
+
+    <div id="hero" class="hero">
+        <div class="tag">FROM TRADITION TO FUTURE</div>
+        <h1>A City of<br>Contrasts.</h1>
+        <p>Quiet temples, neon-lit streets, and hidden moments in between. Discover a different side of Tokyo.</p>
+    </div>
+
+    <div id="neighborhoods" class="section-container clearfix">
+        <div class="tag">01 / NEIGHBORHOODS</div>
+        <h2>Where tradition meets tomorrow.</h2>
+
+        <img src="https://www.advantour.com/img/japan/images/tokyo.jpg" alt="Tokyo Street" class="img-right">
+
+        <p>Tokyo is a city that never stops surprising you. One minute, you can be surrounded by bright lights and skyscraper roofs, and the next, you might discover a quiet shrine hidden between modern buildings.</p>
+        <p>From historic traditional spots to future-forward tech hubs, every neighborhood has its own character and stories waiting to be told.</p>
+    </div>
+
+    <div class="section-container clearfix">
+        <div class="tag">02 / NEIGHBORHOODS</div>
+        <h2>Slow down. Look closer.</h2>
+
+        <img src="https://s3.eu-west-1.amazonaws.com/ryo-prod-public-398019065442/public_endroits_manga_tokyo_fans_poster_en_1ae210be15.jpg" alt="Kyoto/Tokyo Traditional Street" class="img-left">
+
+        <div class="sub-heading">THE QUIETER SIDE</div>
+        <p>Beyond the crowded stations and famous landmarks, Tokyo is full of peaceful corners. Small cafes, traditional shops, and narrow streets invite visitors to take their time.</p>
+        <p>Spend an afternoon walking without a strict plan. Notice the details: wooden doors, warm lanterns, tiny gardens, and the everyday life happening all around you.</p>
+        <p>Sometimes the most memorable places are the ones you never planned to visit.</p>
+    </div>
+
+    <div id="photo-journal" class="section-container">
+        <div class="journal-header">
+            <div>
+                <div class="tag">03 / PHOTO JOURNAL</div>
+                <h2>Tokyo in three frames.</h2>
+            </div>
+            <div class="hint-text">
+                Move your mouse over each photograph to reveal the story behind the image.
+            </div>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-card">
+                <img src="https://www.advantour.com/img/japan/images/tokyo.jpg" alt="Tokyo Night Street">
+                <div class="overlay">
+                    <span>Neon reflections after dusk in the heart of Shinjuku.</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="https://wanderwithsasha.com/wp-content/uploads/2025/01/IMG_7555-1440x1920.jpg" alt="Tokyo Sunset Skyline">
+                <div class="overlay">
+                    <span>Sunset over the sprawling urban skyline.</span>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="https://media.digitalnomads.world/wp-content/uploads/2021/02/20120635/tokyo-for-digital-nomads.jpg" alt="Tokyo Lantern Alley">
+                <div class="overlay">
+                    <span>Warm lantern-lit alleyways in Omoide Yokocho.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Hover over a photo to see the fade-in overlay effect.
+        </div>
+    </div>
+
+    <div id="travel-planner" class="section-container">
+        <div class="tag">04 / TRAVEL PLANNER</div>
+        <h2>Three Days in Tokyo.</h2>
+        <div class="sub-desc">Plan your mornings, afternoons, and evenings with this simple three-day itinerary.</div>
+
+        <table class="planner-table">
+            <tr>
+                <th>Day</th>
+                <th>Morning</th>
+                <th>Afternoon</th>
+                <th>Evening</th>
+            </tr>
+            <tr>
+                <td>Day 1</td>
+                <td>Asakusa Temple</td>
+                <td>Ueno Park</td>
+                <td>Shibuya</td>
+            </tr>
+            <tr>
+                <td>Day 2</td>
+                <td>Meiji Shrine</td>
+                <td>Harajuku</td>
+                <td>Shinjuku</td>
+            </tr>
+            <tr>
+                <td>Day 3</td>
+                <td colspan="2" class="disney-span">Tokyo DisneySea</td>
+                <td>Odaiba</td>
+            </tr>
+        </table>
+
+        <h2>Travel Budget</h2>
+        <div class="sub-desc">A sample budget for transportation and meals in Tokyo.</div>
+
+        <table class="budget-table">
+            <tr>
+                <th>Category</th>
+                <th>Item</th>
+                <th style="text-align: right;">Estimated Cost</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Transportation</td>
+                <td>Metro</td>
+                <td class="price-col">¥1,000</td>
+            </tr>
+            <tr>
+                <td>Train</td>
+                <td class="price-col">¥1,500</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Food</td>
+                <td>Lunch</td>
+                <td class="price-col">¥1,200</td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td class="price-col">¥2,000</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
